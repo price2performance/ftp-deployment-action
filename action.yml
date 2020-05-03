@@ -1,0 +1,19 @@
+name: FTP Deployment Action
+description: Use dg/ftp-deployment in your Github Actions.
+inputs:
+  config_file:
+    description: INI file with deployment configuration
+    required: true
+    default: deployment.ini
+  parameters:
+    description: Parameters to run the deployment script with.
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.config_file }}
+    - ${{ inputs.parameters }}
+branding:
+  icon: 'upload'
+  color: 'red'
