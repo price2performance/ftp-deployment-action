@@ -30,6 +30,11 @@ if (array_key_exists('ignore', $secret)) {
 	$secret['ignore'] = "provide-config.php";
 }
 
+if (getenv('INPUT_DEBUG') == 1 || getenv('INPUT_DEBUG') === true) {
+	echo "Dumping config: \n";
+	var_dump($secret);
+}
+
 return $secret;
 
 /* ******************* FUNCTIONS ******************* */
